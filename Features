@@ -1,0 +1,17 @@
+## Features
+
+- Complete Transformer implementation in PyTorch
+- Multi-Head Self-Attention
+- Positional Encoding
+- Encoder-Decoder Architecture
+- Residual Connections
+- Layer Normalization
+- Position-wise Feed Forward Networks
+- Beam Search Decoding
+- Byte Pair Encoding (BPE)
+- Learning Rate Scheduler with Warmup
+- Checkpoint Averaging
+- BLEU Score Evaluation
+- Comprehensive Mathematical Verification
+- Extensive Unit Testing
+- Reproducibility Analysis
