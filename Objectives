@@ -1,0 +1,10 @@
+## Objectives
+
+The primary goals of this project are to:
+
+- Understand every component of the original Transformer architecture.
+- Implement the complete model without relying on existing Transformer implementations.
+- Verify mathematical correctness through systematic testing.
+- Reproduce key experimental behaviors described in the original publication.
+- Document implementation decisions and computational trade-offs.
+- Demonstrate reproducible machine learning research practices.

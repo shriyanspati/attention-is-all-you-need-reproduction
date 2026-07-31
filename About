@@ -1,0 +1,5 @@
+## Overview
+
+This repository presents a complete, from-scratch implementation of the Transformer architecture described in the landmark paper *Attention Is All You Need*. Rather than simply reproducing the final model, this project focuses on understanding every mathematical component, verifying implementation correctness, and evaluating reproducibility under realistic computational constraints.
+
+The project combines modern software engineering practices with machine learning research methodology to validate both theoretical concepts and practical implementation details.

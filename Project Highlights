@@ -1,0 +1,7 @@
+## Project Highlights
+
+- Implemented the Transformer architecture entirely from scratch.
+- Developed a complete neural machine translation training pipeline.
+- Designed an extensive verification framework validating mathematical correctness and implementation integrity.
+- Reproduced key experimental behaviors reported in the original publication.
+- Documented implementation methodology, validation procedures, and computational limitations in a comprehensive technical report.

@@ -1,0 +1,16 @@
+## Implemented Components
+
+- Scaled Dot-Product Attention
+- Multi-Head Attention
+- Sinusoidal Positional Encoding
+- Position-wise Feed-Forward Networks
+- Residual Connections
+- Layer Normalization
+- Encoder–Decoder Attention
+- Autoregressive Decoding
+- Beam Search Inference
+- Label Smoothing
+- Learning Rate Warmup Schedule
+- Checkpoint Averaging
+- Byte Pair Encoding Pipeline
+- BLEU Evaluation Pipeline
