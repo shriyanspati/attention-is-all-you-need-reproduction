@@ -1,0 +1,52 @@
+[
+  {
+    "step": 1,
+    "train_loss": 8.815170288085938,
+    "lr": 0.08838834764831845,
+    "grad_norm": 2.6883311093755538,
+    "tokens_per_sec": 3633.3966162843335,
+    "tokens_seen": null,
+    "rss_mb": 814.58203125,
+    "elapsed_s": 0.2807295322418213,
+    "sentences": 60,
+    "src_len": 14,
+    "tgt_len": 17
+  },
+  {
+    "step": 200,
+    "train_loss": 6.8439842028714475,
+    "lr": 0.00625,
+    "grad_norm": 0.2678503202867436,
+    "tokens_per_sec": 3857.501768392773,
+    "tokens_seen": null,
+    "rss_mb": 902.29296875,
+    "elapsed_s": 45.981810331344604,
+    "sentences": 40,
+    "src_len": 23,
+    "tgt_len": 25
+  },
+  {
+    "step": 400,
+    "train_loss": 6.612465845663687,
+    "lr": 0.004419417382415923,
+    "grad_norm": 0.22257524138217216,
+    "tokens_per_sec": 3706.432165090932,
+    "tokens_seen": null,
+    "rss_mb": 903.84765625,
+    "elapsed_s": 94.85522603988647,
+    "sentences": 32,
+    "src_len": 32,
+    "tgt_len": 30
+  },
+  {
+    "val_loss": 6.601724510747394,
+    "val_ce": 6.266188451920769,
+    "val_ppl": 526.4668949033874,
+    "val_tokens": 18230,
+    "step": 400,
+    "kind": "eval",
+    "bleu": 0.0,
+    "bleu_bp": 0.0,
+    "bleu_ratio": 0.0
+  }
+]

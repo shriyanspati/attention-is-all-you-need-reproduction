@@ -1,0 +1,91 @@
+[
+  {
+    "step": 1,
+    "train_loss": 8.767599105834961,
+    "lr": 2.1836601342771384e-05,
+    "grad_norm": 7.95426883976471,
+    "tokens_per_sec": 139.36853093493724,
+    "tokens_seen": null,
+    "rss_mb": 1618.55078125,
+    "elapsed_s": 7.318726062774658,
+    "sentences": 60,
+    "src_len": 14,
+    "tgt_len": 17
+  },
+  {
+    "step": 5,
+    "train_loss": 8.079535405128901,
+    "lr": 0.00010918300671385692,
+    "grad_norm": 3.196751027013964,
+    "tokens_per_sec": 261.97463722568517,
+    "tokens_seen": null,
+    "rss_mb": 1990.48828125,
+    "elapsed_s": 22.0758798122406,
+    "sentences": 46,
+    "src_len": 22,
+    "tgt_len": 21
+  },
+  {
+    "step": 10,
+    "train_loss": 7.256407262968431,
+    "lr": 0.00021836601342771383,
+    "grad_norm": 2.154160656279801,
+    "tokens_per_sec": 309.58346761464173,
+    "tokens_seen": null,
+    "rss_mb": 2024.30078125,
+    "elapsed_s": 36.93132424354553,
+    "sentences": 78,
+    "src_len": 13,
+    "tgt_len": 12
+  },
+  {
+    "step": 15,
+    "train_loss": 7.011652338213539,
+    "lr": 0.00032754902014157076,
+    "grad_norm": 2.5335219137890825,
+    "tokens_per_sec": 308.3694748195261,
+    "tokens_seen": null,
+    "rss_mb": 2163.953125,
+    "elapsed_s": 52.06252360343933,
+    "sentences": 93,
+    "src_len": 11,
+    "tgt_len": 11
+  },
+  {
+    "step": 20,
+    "train_loss": 6.813133820736823,
+    "lr": 0.00043673202685542766,
+    "grad_norm": 2.171628414921699,
+    "tokens_per_sec": 332.1116057969095,
+    "tokens_seen": null,
+    "rss_mb": 2257.81640625,
+    "elapsed_s": 66.8677875995636,
+    "sentences": 93,
+    "src_len": 11,
+    "tgt_len": 11
+  },
+  {
+    "step": 25,
+    "train_loss": 6.772634685961242,
+    "lr": 0.0005459150335692846,
+    "grad_norm": 1.0206986511472556,
+    "tokens_per_sec": 326.8271054557291,
+    "tokens_seen": null,
+    "rss_mb": 2257.81640625,
+    "elapsed_s": 81.11385202407837,
+    "sentences": 73,
+    "src_len": 13,
+    "tgt_len": 14
+  },
+  {
+    "val_loss": 6.699870321558389,
+    "val_ce": 6.388356909487709,
+    "val_ppl": 594.8783372857339,
+    "val_tokens": 18230,
+    "step": 25,
+    "kind": "eval",
+    "bleu": 0.0,
+    "bleu_bp": 0.0,
+    "bleu_ratio": 0.0
+  }
+]

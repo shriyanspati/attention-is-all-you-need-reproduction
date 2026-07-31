@@ -2,9 +2,9 @@
 
 Author: Shriyans Pati
 
-This repository provides a compact PyTorch implementation of the encoder-decoder Transformer architecture introduced in *Attention Is All You Need* by Vaswani et al. The code is intended for inspection, testing, and research-oriented reproduction of the core algorithmic components: scaled dot-product attention, multi-head attention, sinusoidal positional encodings, position-wise feed-forward networks, residual connections, layer normalization, autoregressive masking, and encoder-decoder cross-attention.
+This repository provides PyTorch implementations and reproduction artifacts for the encoder-decoder Transformer architecture introduced in *Attention Is All You Need* by Vaswani et al. The code is intended for inspection, testing, and research-oriented reproduction of the core algorithmic components: scaled dot-product attention, multi-head attention, sinusoidal positional encodings, position-wise feed-forward networks, residual connections, layer normalization, autoregressive masking, and encoder-decoder cross-attention.
 
-The repository does not report benchmark numbers. No training run, dataset preprocessing pipeline, or paper-level reproduction result is included unless explicitly added and documented in a future release.
+The `src/transformer_reference_implementation` package is a compact reference implementation. The `project`, `data`, `experiments`, `REPORT.md`, and `REPORT.pdf` files were added from the supplied archive and contain the broader reproduction study, logs, plots, and generated artifacts. Results in those artifacts should be interpreted only with the assumptions and limitations documented in `REPORT.md`.
 
 ## Scope
 
@@ -15,13 +15,14 @@ Implemented:
 - Padding masks and causal masks for sequence-to-sequence modeling.
 - A minimal greedy decoding utility.
 - Unit tests for tensor shapes, masks, positional encodings, and decoding behavior.
+- Imported reproduction code, experiment artifacts, and report files from the supplied project archive.
 
 Not included:
 
 - WMT14 preprocessing or tokenization recipes.
 - Distributed training infrastructure.
 - Checkpoints or pretrained weights.
-- Claimed BLEU, perplexity, latency, or memory results.
+- Empirical claims beyond the supplied artifacts and their documented constraints.
 
 ## Installation
 
@@ -72,7 +73,11 @@ transformer-reference-implementation/
 ├── .github/workflows/ci.yml
 ├── docs/
 │   ├── architecture.md
+│   ├── imported-readme.md
 │   └── reproducibility.md
+├── data/
+├── experiments/
+├── project/
 ├── src/transformer_reference_implementation/
 │   ├── __init__.py
 │   ├── config.py
@@ -88,8 +93,14 @@ transformer-reference-implementation/
 ├── CITATION.cff
 ├── LICENSE
 ├── pyproject.toml
+├── REPORT.md
+├── REPORT.pdf
 └── README.md
 ```
+
+## Imported Reproduction Artifacts
+
+The supplied archive was added without replacing the curated repository README. Its original README is preserved at [docs/imported-readme.md](docs/imported-readme.md). The primary reproduction report is available as [REPORT.md](REPORT.md) and [REPORT.pdf](REPORT.pdf).
 
 ## Design Principles
 

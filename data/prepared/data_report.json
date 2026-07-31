@@ -1,0 +1,120 @@
+{
+  "corpus": {
+    "train_pairs": 29000,
+    "val_pairs": 1014,
+    "test_pairs": 1000,
+    "train_en_words": 380728,
+    "train_de_words": 365761,
+    "word_types_en": 10825,
+    "word_types_de": 18483,
+    "word_types_joint": 28071
+  },
+  "vocab_scaling_study": [
+    {
+      "merges_requested": 1000,
+      "merges_learned": 1000,
+      "vocab_size": 1104,
+      "mean_val_en_tokens_per_sentence": 19.46,
+      "val_unk_rate": 0.0,
+      "train_seconds": 2.6
+    },
+    {
+      "merges_requested": 2000,
+      "merges_learned": 2000,
+      "vocab_size": 2104,
+      "mean_val_en_tokens_per_sentence": 16.79,
+      "val_unk_rate": 0.0,
+      "train_seconds": 3.9
+    },
+    {
+      "merges_requested": 4000,
+      "merges_learned": 4000,
+      "vocab_size": 4104,
+      "mean_val_en_tokens_per_sentence": 15.17,
+      "val_unk_rate": 0.0,
+      "train_seconds": 6.8
+    },
+    {
+      "merges_requested": 8000,
+      "merges_learned": 8000,
+      "vocab_size": 8104,
+      "mean_val_en_tokens_per_sentence": 14.08,
+      "val_unk_rate": 0.0,
+      "train_seconds": 14.3
+    },
+    {
+      "merges_requested": 16000,
+      "merges_learned": 16000,
+      "vocab_size": 16104,
+      "mean_val_en_tokens_per_sentence": 13.55,
+      "val_unk_rate": 0.0,
+      "train_seconds": 33.9
+    }
+  ],
+  "tokenizer": {
+    "merges_requested": 4000,
+    "merges_learned": 4000,
+    "vocab_size": 4104,
+    "shared_source_target": true,
+    "val_unk_rate": 0.0,
+    "test_unk_rate": 0.0
+  },
+  "splits": {
+    "train": {
+      "pairs": 29000,
+      "src_tokens": 478439,
+      "tgt_tokens": 506847,
+      "src_mean_len": 16.49789655172414,
+      "tgt_mean_len": 17.47748275862069,
+      "src_max_len": 57,
+      "tgt_max_len": 62,
+      "length_filter_max_len": 64
+    },
+    "val": {
+      "pairs": 1014,
+      "src_tokens": 16855,
+      "tgt_tokens": 18230,
+      "src_mean_len": 16.622287968441814,
+      "tgt_mean_len": 17.978303747534518,
+      "src_max_len": 47,
+      "tgt_max_len": 51,
+      "length_filter_max_len": null
+    },
+    "test": {
+      "pairs": 1000,
+      "src_tokens": 16303,
+      "tgt_tokens": 16913,
+      "src_mean_len": 16.303,
+      "tgt_mean_len": 16.913,
+      "src_max_len": 40,
+      "tgt_max_len": 45,
+      "length_filter_max_len": null
+    }
+  },
+  "dynamic_batching": [
+    {
+      "max_tokens": 1024,
+      "batches_per_epoch": 563,
+      "mean_sentences_per_batch": 51.3,
+      "min_sentences_per_batch": 2,
+      "max_sentences_per_batch": 102,
+      "padding_fraction": 0.0062
+    },
+    {
+      "max_tokens": 4096,
+      "batches_per_epoch": 164,
+      "mean_sentences_per_batch": 176.8,
+      "min_sentences_per_batch": 1,
+      "max_sentences_per_batch": 292,
+      "padding_fraction": 0.0276
+    },
+    {
+      "max_tokens": 25000,
+      "batches_per_epoch": 36,
+      "mean_sentences_per_batch": 805.6,
+      "min_sentences_per_batch": 18,
+      "max_sentences_per_batch": 1300,
+      "padding_fraction": 0.1302
+    }
+  ]
+}

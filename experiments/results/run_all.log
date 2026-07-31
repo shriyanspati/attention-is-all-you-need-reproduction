@@ -1,0 +1,27 @@
+=== 02:01:10 MAIN scaled 1600 steps ===
+=== main_scaled ===
+params 1.448M | vocab 4104 | train 29000 pairs | steps 1600 | warmup 64 | max_tokens 1024
+/home/claude/repro/project/training/trainer.py:242: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:822.)
+  step_loss_sum += float(loss) * n
+step      1 | loss 8.8152 | lr 1.73e-04 | gnorm    2.69 | tok/s    1476 | rss 815MB
+step     50 | loss 6.7159 | lr 8.63e-03 | gnorm    0.49 | tok/s    5571 | rss 899MB
+step    100 | loss 6.0612 | lr 8.84e-03 | gnorm    0.62 | tok/s    5368 | rss 908MB
+step    150 | loss 5.8277 | lr 7.22e-03 | gnorm    0.71 | tok/s    5183 | rss 908MB
+step    200 | loss 5.7641 | lr 6.25e-03 | gnorm    0.46 | tok/s    4785 | rss 908MB
+step    250 | loss 5.6382 | lr 5.59e-03 | gnorm    0.53 | tok/s    4485 | rss 908MB
+step    300 | loss 5.5121 | lr 5.10e-03 | gnorm    0.67 | tok/s    4510 | rss 908MB
+step    350 | loss 5.5234 | lr 4.72e-03 | gnorm    0.60 | tok/s    4323 | rss 908MB
+step    400 | loss 5.3122 | lr 4.42e-03 | gnorm    0.45 | tok/s    4045 | rss 918MB
+  eval @ 400: val_loss 5.3083 ppl 117.75 bleu 0.92
+step    450 | loss 5.3542 | lr 4.17e-03 | gnorm    0.95 | tok/s    2818 | rss 918MB
+step    500 | loss 5.2158 | lr 3.95e-03 | gnorm    0.62 | tok/s    3940 | rss 918MB
+step    550 | loss 5.2755 | lr 3.77e-03 | gnorm    0.43 | tok/s    4026 | rss 918MB
+step    600 | loss 5.0705 | lr 3.61e-03 | gnorm    0.72 | tok/s    4048 | rss 918MB
+step    650 | loss 5.1825 | lr 3.47e-03 | gnorm    0.80 | tok/s    3846 | rss 923MB
+step    700 | loss 5.1936 | lr 3.34e-03 | gnorm    0.48 | tok/s    3937 | rss 923MB
+step    750 | loss 5.1842 | lr 3.23e-03 | gnorm    0.86 | tok/s    3934 | rss 923MB
+step    800 | loss 5.0265 | lr 3.13e-03 | gnorm    0.82 | tok/s    3964 | rss 923MB
+  eval @ 800: val_loss 5.0834 ppl 89.75 bleu 1.85
+step    850 | loss 5.0455 | lr 3.03e-03 | gnorm    0.49 | tok/s    2815 | rss 923MB
+step    900 | loss 5.0375 | lr 2.95e-03 | gnorm    0.88 | tok/s    3879 | rss 923MB

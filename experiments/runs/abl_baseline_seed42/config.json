@@ -1,0 +1,59 @@
+{
+  "model": {
+    "src_vocab_size": 4104,
+    "tgt_vocab_size": 4104,
+    "num_encoder_layers": 2,
+    "num_decoder_layers": 2,
+    "d_model": 128,
+    "num_heads": 8,
+    "d_ff": 512,
+    "d_k": null,
+    "d_v": null,
+    "dropout": 0.1,
+    "attention_dropout": 0.0,
+    "relu_dropout": 0.0,
+    "positional_encoding": "sinusoidal",
+    "max_len": 128,
+    "tie_embeddings": true,
+    "norm_first": false,
+    "layer_norm_eps": 1e-06,
+    "pad_id": 0,
+    "bos_id": 1,
+    "eos_id": 2
+  },
+  "train": {
+    "total_steps": 400,
+    "warmup_steps": 160,
+    "max_tokens": 1024,
+    "label_smoothing": 0.1,
+    "betas": [
+      0.9,
+      0.98
+    ],
+    "eps": 1e-09,
+    "lr_factor": 1.0,
+    "clip_norm": null,
+    "log_every": 400,
+    "eval_every": 400,
+    "save_every": 0,
+    "keep_last": 5,
+    "seed": 42,
+    "accum_steps": 1,
+    "out_dir": "experiments/runs/abl_baseline_seed42",
+    "notes": "seed variance baseline",
+    "resume": true
+  },
+  "environment": {
+    "torch": "2.13.0+cu130",
+    "device": "cpu",
+    "num_threads": 1,
+    "cuda_available": false
+  },
+  "parameters": {
+    "src_embed": 525312,
+    "encoder": 395520,
+    "decoder": 527104,
+    "total": 1447936
+  },
+  "peak_lr": 0.006987712429686843
+}

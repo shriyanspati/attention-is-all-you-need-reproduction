@@ -1,0 +1,160 @@
+CI test log
+Generated: 2026-07-30 22:12:48 UTC
+Command: python3 -m unittest discover -s project/tests -t . -p 'test_*.py' -v
+Python: Python 3.12.3
+PyTorch: 2.13.0+cu130 | threads: 1 | cuda: False
+----------------------------------------------------------------------
+test_beam_search_returns_sequence (project.tests.test_architecture.TestDecoding.test_beam_search_returns_sequence) ... ok
+test_beam_size_one_is_close_to_greedy (project.tests.test_architecture.TestDecoding.test_beam_size_one_is_close_to_greedy)
+Beam size 1 is greedy search (modulo EOS bookkeeping). ... ok
+test_greedy_decode_starts_with_bos_and_respects_max_length (project.tests.test_architecture.TestDecoding.test_greedy_decode_starts_with_bos_and_respects_max_length) ... ok
+test_length_penalty_monotone_in_length (project.tests.test_architecture.TestDecoding.test_length_penalty_monotone_in_length)
+GNMT penalty lp(Y) = ((5+|Y|)/6)^alpha grows with length, so longer ... ok
+test_base_model_parameter_count_vs_table_3 (project.tests.test_architecture.TestFullModel.test_base_model_parameter_count_vs_table_3)
+Table 3 lists 65e6 parameters for base. We obtain 63.0e6. ... ok
+test_big_config_matches_table_3_row (project.tests.test_architecture.TestFullModel.test_big_config_matches_table_3_row) ... ok
+test_dropout_active_in_train_inactive_in_eval (project.tests.test_architecture.TestFullModel.test_dropout_active_in_train_inactive_in_eval) ... ok
+test_embedding_scaled_by_sqrt_d_model (project.tests.test_architecture.TestFullModel.test_embedding_scaled_by_sqrt_d_model)
+Section 3.4: "we multiply those weights by sqrt(d_model)". ... ok
+test_forward_shapes (project.tests.test_architecture.TestFullModel.test_forward_shapes) ... ok
+test_gradients_reach_every_parameter (project.tests.test_architecture.TestFullModel.test_gradients_reach_every_parameter)
+A parameter with no gradient is a disconnected component. ... ok
+test_parameter_count_matches_closed_form (project.tests.test_architecture.TestFullModel.test_parameter_count_matches_closed_form) ... ok
+test_three_way_weight_tying (project.tests.test_architecture.TestFullModel.test_three_way_weight_tying) ... ok
+test_untied_variant_has_distinct_matrices (project.tests.test_architecture.TestFullModel.test_untied_variant_has_distinct_matrices) ... ok
+test_decoder_layer_has_three_sublayers (project.tests.test_architecture.TestSubmoduleShapes.test_decoder_layer_has_three_sublayers) ... ok
+test_encoder_layer_has_two_sublayers (project.tests.test_architecture.TestSubmoduleShapes.test_encoder_layer_has_two_sublayers) ... ok
+test_encoder_layer_preserves_shape (project.tests.test_architecture.TestSubmoduleShapes.test_encoder_layer_preserves_shape) ... ok
+test_encoder_stack_depth (project.tests.test_architecture.TestSubmoduleShapes.test_encoder_stack_depth) ... ok
+test_feed_forward_is_position_wise (project.tests.test_architecture.TestSubmoduleShapes.test_feed_forward_is_position_wise)
+"applied to each position separately and identically" -- so the ... ok
+test_feed_forward_shapes_and_relu (project.tests.test_architecture.TestSubmoduleShapes.test_feed_forward_shapes_and_relu) ... ok
+test_post_norm_output_is_layer_normalized (project.tests.test_architecture.TestSubmoduleShapes.test_post_norm_output_is_layer_normalized)
+The paper's form ends each sub-layer with LayerNorm, so encoder ... /home/claude/repro/project/tests/test_architecture.py:104: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:822.)
+  self.assertLess(float(out.mean(-1).abs().max()), 1e-4)
+ok
+test_pre_norm_output_is_not_normalized_before_final_norm (project.tests.test_architecture.TestSubmoduleShapes.test_pre_norm_output_is_not_normalized_before_final_norm) ... ok
+test_cross_attention_length_mismatch_allowed (project.tests.test_attention.TestMultiHeadAttention.test_cross_attention_length_mismatch_allowed)
+Encoder-decoder attention has Lq != Lk (Section 3.2.3). ... ok
+test_fused_projection_equals_per_head_loop (project.tests.test_attention.TestMultiHeadAttention.test_fused_projection_equals_per_head_loop)
+h separate projections == one fused projection + reshape. ... ok
+test_head_dimension_divisibility_enforced (project.tests.test_attention.TestMultiHeadAttention.test_head_dimension_divisibility_enforced) ... ok
+test_output_shape_and_dimension_bookkeeping (project.tests.test_attention.TestMultiHeadAttention.test_output_shape_and_dimension_bookkeeping) ... ok
+test_permutation_equivariance_without_position_signal (project.tests.test_attention.TestMultiHeadAttention.test_permutation_equivariance_without_position_signal)
+Self-attention alone is permutation-equivariant. ... ok
+test_reduced_dk_keeps_compute_comparable (project.tests.test_attention.TestMultiHeadAttention.test_reduced_dk_keeps_compute_comparable)
+Table 3 row (B) reduces d_k without changing h. ... ok
+test_attention_weights_are_a_distribution (project.tests.test_attention.TestScaledDotProductAttention.test_attention_weights_are_a_distribution) ... ok
+test_dot_product_variance_grows_as_dk (project.tests.test_attention.TestScaledDotProductAttention.test_dot_product_variance_grows_as_dk)
+Empirical check of footnote 4, the stated motivation for 1/sqrt(dk). ... ok
+test_matches_naive_transcription_of_equation_1 (project.tests.test_attention.TestScaledDotProductAttention.test_matches_naive_transcription_of_equation_1) ... ok
+test_matches_naive_with_mask (project.tests.test_attention.TestScaledDotProductAttention.test_matches_naive_with_mask) ... ok
+test_scale_factor_is_sqrt_dk_not_dk_or_one (project.tests.test_attention.TestScaledDotProductAttention.test_scale_factor_is_sqrt_dk_not_dk_or_one)
+Guard against the two most common scaling bugs. ... ok
+test_scaling_prevents_softmax_saturation (project.tests.test_attention.TestScaledDotProductAttention.test_scaling_prevents_softmax_saturation)
+The consequence the paper cares about: gradient magnitude. ... ok
+test_average_checkpoints_is_the_arithmetic_mean (project.tests.test_embeddings_and_decoding.TestDecodingUtilities.test_average_checkpoints_is_the_arithmetic_mean) ... ok
+test_average_of_empty_list_raises (project.tests.test_embeddings_and_decoding.TestDecodingUtilities.test_average_of_empty_list_raises) ... ok
+test_length_penalty_alpha_zero_disables_it (project.tests.test_embeddings_and_decoding.TestDecodingUtilities.test_length_penalty_alpha_zero_disables_it) ... ok
+test_length_penalty_is_one_at_unit_length_and_increasing (project.tests.test_embeddings_and_decoding.TestDecodingUtilities.test_length_penalty_is_one_at_unit_length_and_increasing) ... ok
+test_select_checkpoints_returns_last_n_oldest_first (project.tests.test_embeddings_and_decoding.TestDecodingUtilities.test_select_checkpoints_returns_last_n_oldest_first) ... ok
+test_embedding_scale_is_sqrt_d_model (project.tests.test_embeddings_and_decoding.TestEmbeddings.test_embedding_scale_is_sqrt_d_model) ... ok
+test_tying_requires_shared_vocabulary (project.tests.test_embeddings_and_decoding.TestEmbeddings.test_tying_requires_shared_vocabulary) ... ok
+test_tying_shares_the_same_object_not_just_shape (project.tests.test_embeddings_and_decoding.TestEmbeddings.test_tying_shares_the_same_object_not_just_shape) ... ok
+test_untied_matrices_are_distinct_objects (project.tests.test_embeddings_and_decoding.TestEmbeddings.test_untied_matrices_are_distinct_objects) ... ok
+test_verify_tying_reports_model_state (project.tests.test_embeddings_and_decoding.TestEmbeddings.test_verify_tying_reports_model_state) ... ok
+test_batch_composition_invariance (project.tests.test_masking.TestCausalityThroughFullModel.test_batch_composition_invariance)
+A sentence's output must not depend on its batch-mates. ... ok
+test_future_token_perturbation_does_not_change_past_logits (project.tests.test_masking.TestCausalityThroughFullModel.test_future_token_perturbation_does_not_change_past_logits)
+Complementary black-box check of the same property. ... ok
+test_jacobian_is_strictly_causal (project.tests.test_masking.TestCausalityThroughFullModel.test_jacobian_is_strictly_causal)
+d logits[t] / d decoder_input_embedding[s] must be 0 for s > t. ... ok
+test_padding_invariance (project.tests.test_masking.TestCausalityThroughFullModel.test_padding_invariance)
+Appending PAD to a source must not change the model's outputs. ... ok
+test_causal_mask_is_lower_triangular (project.tests.test_masking.TestMaskConstruction.test_causal_mask_is_lower_triangular) ... ok
+test_decoder_mask_is_conjunction (project.tests.test_masking.TestMaskConstruction.test_decoder_mask_is_conjunction) ... ok
+test_masked_positions_receive_zero_weight (project.tests.test_masking.TestMaskConstruction.test_masked_positions_receive_zero_weight) ... ok
+test_no_nan_when_row_heavily_masked (project.tests.test_masking.TestMaskConstruction.test_no_nan_when_row_heavily_masked)
+Motivates using finfo.min instead of -inf (see attention.py note). ... ok
+test_padding_mask_shape_and_values (project.tests.test_masking.TestMaskConstruction.test_padding_mask_shape_and_values) ... ok
+test_factory (project.tests.test_positional_encoding.TestAlternatives.test_factory) ... ok
+test_learned_variant_has_trainable_parameters (project.tests.test_positional_encoding.TestAlternatives.test_learned_variant_has_trainable_parameters) ... ok
+test_none_variant_is_identity_in_eval (project.tests.test_positional_encoding.TestAlternatives.test_none_variant_is_identity_in_eval) ... ok
+test_added_not_concatenated (project.tests.test_positional_encoding.TestSinusoidalPositionalEncoding.test_added_not_concatenated)
+Section 3.5: encodings "have the same dimension d_model as the ... ok
+test_bounded_in_unit_interval (project.tests.test_positional_encoding.TestSinusoidalPositionalEncoding.test_bounded_in_unit_interval) ... ok
+test_buffer_is_not_a_trained_parameter (project.tests.test_positional_encoding.TestSinusoidalPositionalEncoding.test_buffer_is_not_a_trained_parameter) ... ok
+test_even_columns_sine_odd_columns_cosine (project.tests.test_positional_encoding.TestSinusoidalPositionalEncoding.test_even_columns_sine_odd_columns_cosine)
+Guards against the common (sin | cos) half-split layout, which is ... ok
+test_extends_beyond_table_for_longer_sequences (project.tests.test_positional_encoding.TestSinusoidalPositionalEncoding.test_extends_beyond_table_for_longer_sequences)
+Sinusoids are defined for any position; the paper cites this ... ok
+test_matches_naive_formula (project.tests.test_positional_encoding.TestSinusoidalPositionalEncoding.test_matches_naive_formula) ... ok
+test_offset_matrix_is_position_independent (project.tests.test_positional_encoding.TestSinusoidalPositionalEncoding.test_offset_matrix_is_position_independent)
+The linear map above must be the SAME matrix for all positions, ... ok
+test_paired_columns_share_a_frequency (project.tests.test_positional_encoding.TestSinusoidalPositionalEncoding.test_paired_columns_share_a_frequency)
+Column 2i and 2i+1 must use the SAME denominator. ... ok
+test_relative_offset_is_a_linear_function_of_position (project.tests.test_positional_encoding.TestSinusoidalPositionalEncoding.test_relative_offset_is_a_linear_function_of_position)
+Paper claim: "for any fixed offset k, PE_{pos+k} can be represented ... ok
+test_wavelength_geometric_progression (project.tests.test_positional_encoding.TestSinusoidalPositionalEncoding.test_wavelength_geometric_progression)
+Paper: "The wavelengths form a geometric progression from 2*pi to ... ok
+test_agrees_with_sacrebleu_reference_implementation (project.tests.test_training_and_eval.TestBLEU.test_agrees_with_sacrebleu_reference_implementation)
+Cross-validation against the community-standard scorer. ... ok
+test_bleu4_is_zero_for_sentences_shorter_than_four_tokens (project.tests.test_training_and_eval.TestBLEU.test_bleu4_is_zero_for_sentences_shorter_than_four_tokens)
+Not a bug: a 3-token hypothesis contains no 4-grams, so the ... ok
+test_brevity_penalty_applied_when_short (project.tests.test_training_and_eval.TestBLEU.test_brevity_penalty_applied_when_short) ... ok
+test_corpus_level_not_sentence_averaged (project.tests.test_training_and_eval.TestBLEU.test_corpus_level_not_sentence_averaged)
+Aggregate n-gram counts first, THEN divide. ... ok
+test_identical_hypothesis_scores_100 (project.tests.test_training_and_eval.TestBLEU.test_identical_hypothesis_scores_100) ... ok
+test_modified_precision_clips_repeated_ngrams (project.tests.test_training_and_eval.TestBLEU.test_modified_precision_clips_repeated_ngrams)
+Papineni's motivating example: repeating a high-probability word ... ok
+test_multi_reference_takes_max_count (project.tests.test_training_and_eval.TestBLEU.test_multi_reference_takes_max_count)
+Clipping uses the MAXIMUM count over references, so matching any ... ok
+test_no_ngram_overlap_scores_zero (project.tests.test_training_and_eval.TestBLEU.test_no_ngram_overlap_scores_zero) ... ok
+test_no_penalty_when_longer_than_reference (project.tests.test_training_and_eval.TestBLEU.test_no_penalty_when_longer_than_reference) ... ok
+test_tokenizer_separates_punctuation (project.tests.test_training_and_eval.TestBLEU.test_tokenizer_separates_punctuation) ... ok
+test_clean_text_normalizes_and_collapses_whitespace (project.tests.test_training_and_eval.TestBPE.test_clean_text_normalizes_and_collapses_whitespace) ... ok
+test_determinism (project.tests.test_training_and_eval.TestBPE.test_determinism) ... ok
+test_encode_decode_round_trip (project.tests.test_training_and_eval.TestBPE.test_encode_decode_round_trip) ... ok
+test_more_merges_yield_larger_vocab_and_shorter_sequences (project.tests.test_training_and_eval.TestBPE.test_more_merges_yield_larger_vocab_and_shorter_sequences) ... ok
+test_pretokenize_isolates_punctuation (project.tests.test_training_and_eval.TestBPE.test_pretokenize_isolates_punctuation) ... ok
+test_save_load_round_trip (project.tests.test_training_and_eval.TestBPE.test_save_load_round_trip) ... ok
+test_shared_vocabulary_over_two_languages (project.tests.test_training_and_eval.TestBPE.test_shared_vocabulary_over_two_languages) ... ok
+test_special_tokens_occupy_first_four_ids (project.tests.test_training_and_eval.TestBPE.test_special_tokens_occupy_first_four_ids) ... ok
+test_unseen_character_becomes_unk (project.tests.test_training_and_eval.TestBPE.test_unseen_character_becomes_unk) ... ok
+test_unseen_word_is_segmented_not_unked (project.tests.test_training_and_eval.TestBPE.test_unseen_word_is_segmented_not_unked)
+BPE's core property: no OOV as long as characters are known. ... ok
+test_collate_pads_to_batch_max_and_counts_tokens (project.tests.test_training_and_eval.TestBatching.test_collate_pads_to_batch_max_and_counts_tokens) ... ok
+test_collate_right_shifts_the_decoder_input (project.tests.test_training_and_eval.TestBatching.test_collate_right_shifts_the_decoder_input)
+Section 3.1: outputs are "offset by one position". ... ok
+test_epoch_changes_batch_composition (project.tests.test_training_and_eval.TestBatching.test_epoch_changes_batch_composition) ... ok
+test_every_example_appears_exactly_once_per_epoch (project.tests.test_training_and_eval.TestBatching.test_every_example_appears_exactly_once_per_epoch) ... ok
+test_length_bucketing_reduces_padding_waste (project.tests.test_training_and_eval.TestBatching.test_length_bucketing_reduces_padding_waste)
+The point of bucketing: fewer PAD tokens than random batching. ... ok
+test_token_batching_respects_the_budget (project.tests.test_training_and_eval.TestBatching.test_token_batching_respects_the_budget) ... ok
+test_overfits_a_single_batch (project.tests.test_training_and_eval.TestEndToEndOverfit.test_overfits_a_single_batch) ... ok
+test_all_pad_batch_returns_zero_not_nan (project.tests.test_training_and_eval.TestLabelSmoothing.test_all_pad_batch_returns_zero_not_nan) ... ok
+test_analytic_value_for_uniform_prediction (project.tests.test_training_and_eval.TestLabelSmoothing.test_analytic_value_for_uniform_prediction)
+With uniform logits, log p = -log V for every class, so the ... ok
+test_pad_positions_excluded_from_loss (project.tests.test_training_and_eval.TestLabelSmoothing.test_pad_positions_excluded_from_loss) ... ok
+test_perplexity_reported_from_unsmoothed_likelihood (project.tests.test_training_and_eval.TestLabelSmoothing.test_perplexity_reported_from_unsmoothed_likelihood) ... ok
+test_smoothing_raises_loss_on_a_confident_correct_prediction (project.tests.test_training_and_eval.TestLabelSmoothing.test_smoothing_raises_loss_on_a_confident_correct_prediction)
+Paper: label smoothing "hurts perplexity, as the model learns to ... ok
+test_target_distribution_sums_to_one_and_excludes_pad (project.tests.test_training_and_eval.TestLabelSmoothing.test_target_distribution_sums_to_one_and_excludes_pad)
+Reconstruct the implied target distribution from the loss values. ... ok
+test_zero_smoothing_equals_cross_entropy (project.tests.test_training_and_eval.TestLabelSmoothing.test_zero_smoothing_equals_cross_entropy) ... ok
+test_branches_cross_exactly_at_warmup (project.tests.test_training_and_eval.TestNoamSchedule.test_branches_cross_exactly_at_warmup) ... ok
+test_linear_warmup_then_inverse_sqrt_decay (project.tests.test_training_and_eval.TestNoamSchedule.test_linear_warmup_then_inverse_sqrt_decay) ... ok
+test_matches_equation_3_literally (project.tests.test_training_and_eval.TestNoamSchedule.test_matches_equation_3_literally) ... ok
+test_peak_lr_is_smaller_for_the_big_model (project.tests.test_training_and_eval.TestNoamSchedule.test_peak_lr_is_smaller_for_the_big_model)
+The schedule couples LR to d_model: wider models take smaller steps. ... ok
+test_peak_lr_value_for_base_model (project.tests.test_training_and_eval.TestNoamSchedule.test_peak_lr_value_for_base_model)
+Peak = d_model^-0.5 * warmup^-0.5 = 512^-0.5 * 4000^-0.5. ... ok
+test_scheduler_applies_lr_to_optimizer_before_stepping (project.tests.test_training_and_eval.TestNoamSchedule.test_scheduler_applies_lr_to_optimizer_before_stepping) ... ok
+test_state_dict_round_trip (project.tests.test_training_and_eval.TestNoamSchedule.test_state_dict_round_trip) ... ok
+test_step_zero_is_zero_and_one_based_counting (project.tests.test_training_and_eval.TestNoamSchedule.test_step_zero_is_zero_and_one_based_counting) ... ok
+
+----------------------------------------------------------------------
+Ran 107 tests in 22.528s
+
+OK

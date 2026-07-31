@@ -1,0 +1,2 @@
+Model checkpoints (*.pt) excluded for size; regenerate with ./run_all.sh.
+Raw Multi30k corpus excluded; prepare_data.py re-downloads it.
