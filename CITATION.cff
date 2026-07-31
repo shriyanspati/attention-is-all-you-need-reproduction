@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite it using the metadata below and cite the original Transformer paper."
+title: "Transformer Reference Implementation: Algorithmic Reproduction of Attention Is All You Need"
+authors:
+  - family-names: "Pati"
+    given-names: "Shriyans"
+year: 2026
+license: MIT
+repository-code: "https://github.com/shriyans-pati/transformer-reference-implementation"
+abstract: "A compact PyTorch reference implementation of the encoder-decoder Transformer architecture introduced in Attention Is All You Need."
+preferred-citation:
+  type: conference-paper
+  title: "Attention Is All You Need"
+  authors:
+    - family-names: "Vaswani"
+      given-names: "Ashish"
+    - family-names: "Shazeer"
+      given-names: "Noam"
+    - family-names: "Parmar"
+      given-names: "Niki"
+    - family-names: "Uszkoreit"
+      given-names: "Jakob"
+    - family-names: "Jones"
+      given-names: "Llion"
+    - family-names: "Gomez"
+      given-names: "Aidan N."
+    - family-names: "Kaiser"
+      given-names: "Lukasz"
+    - family-names: "Polosukhin"
+      given-names: "Illia"
+  conference:
+    name: "Advances in Neural Information Processing Systems"
+  year: 2017
